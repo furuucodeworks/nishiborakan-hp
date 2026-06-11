@@ -84,7 +84,7 @@ export default function Home() {
         <div className="w-full bg-white rounded-2xl shadow-lg p-7">
           <div className="flex flex-col gap-2 mb-5">
             <h3 className="text-sm font-bold tracking-[0.2em] text-[#333333]">
-              HOSTEL
+              INFORMATION
             </h3>
             <div className="w-6 h-0.5 bg-[#333333]" />
           </div>
