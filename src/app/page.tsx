@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const infoRows = [
   ["OPENING SEASON", "12月〜3月"],
@@ -14,9 +15,9 @@ export default function Home() {
 
       {/* ヘッダー */}
       <header className="flex items-center justify-between px-5 h-14 bg-white lg:px-16 lg:h-16">
-        <span className="text-xs font-bold tracking-[0.2em] text-[#333333]">
+        <Link href="/" className="text-xs font-bold tracking-[0.2em] text-[#333333]">
           NISHIBORAKAN
-        </span>
+        </Link>
         {/* デスクトップ：ナビリンク */}
         <nav className="hidden lg:flex gap-8">
           <Link href="/accommodation" className="text-xs text-[#555555] hover:text-[#333333]">宿泊</Link>
@@ -30,7 +31,14 @@ export default function Home() {
       </header>
 
       {/* ヒーロー */}
-      <div className="relative h-[460px] bg-gray-400 lg:h-[600px]">
+      <div className="relative h-[460px] lg:h-[600px]">
+        <Image
+          src="/hero.png"
+          alt="GUEST HOUSE NISHIBORAKAN 外観"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/25" />
         <div className="absolute bottom-10 left-6 text-white lg:left-16 lg:bottom-16">
           <h1 className="text-lg font-bold leading-snug tracking-widest lg:text-3xl">
@@ -39,9 +47,9 @@ export default function Home() {
           <p className="text-[9px] mt-3 lg:text-xs lg:mt-4">
             鷲ヶ岳スキー場に一番近いゲストハウス
           </p>
-          <button className="mt-4 border border-white text-[9px] px-[60px] py-2 rounded-lg lg:text-xs lg:mt-6">
+          <Link href="/contact" className="mt-4 inline-block border border-white text-[9px] px-[60px] py-2 rounded-lg lg:text-xs lg:mt-6">
             空室を確認する
-          </button>
+          </Link>
         </div>
       </div>
 

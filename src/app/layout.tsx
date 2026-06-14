@@ -4,6 +4,20 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "GUEST HOUSE NISHIBORAKAN",
   description: "鷲ヶ岳スキー場に一番近いゲストハウス",
+  openGraph: {
+    title: "GUEST HOUSE NISHIBORAKAN",
+    description: "鷲ヶ岳スキー場に一番近いゲストハウス",
+    url: "https://nishiborakan-hp.vercel.app",
+    siteName: "GUEST HOUSE NISHIBORAKAN",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "https://nishiborakan-hp.vercel.app/hero.png",
+        alt: "GUEST HOUSE NISHIBORAKAN",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
