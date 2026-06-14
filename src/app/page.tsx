@@ -56,7 +56,9 @@ export default function Home() {
       {/* 宿泊セクション */}
       <section className="py-[52px] px-8 bg-white lg:py-20 lg:px-16">
         <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:flex-row lg:gap-16 lg:max-w-5xl lg:mx-auto">
-          <div className="w-full h-[220px] bg-gray-200 rounded-sm shrink-0 lg:w-1/2 lg:h-[320px]" />
+          <div className="relative w-full h-[220px] rounded-sm shrink-0 lg:w-1/2 lg:h-[320px]">
+            <Image src="/aroom.jpg" alt="客室の様子" fill className="object-cover rounded-sm" />
+          </div>
           <div className="flex flex-col items-center gap-5 lg:items-start">
             <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Hostel</h2>
             <p className="text-[11px] text-[#999999]">宿泊のご案内</p>
@@ -79,7 +81,9 @@ export default function Home() {
       {/* 食事セクション */}
       <section className="py-[52px] px-8 bg-white lg:py-20 lg:px-16">
         <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:flex-row-reverse lg:gap-16 lg:max-w-5xl lg:mx-auto">
-          <div className="w-full h-[220px] bg-gray-200 rounded-sm shrink-0 lg:w-1/2 lg:h-[320px]" />
+          <div className="relative w-full h-[220px] rounded-sm shrink-0 lg:w-1/2 lg:h-[320px]">
+            <Image src="/dinnersample.png" alt="夕食の様子" fill className="object-cover rounded-sm" />
+          </div>
           <div className="flex flex-col items-center gap-5 lg:items-start">
             <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Meals</h2>
             <p className="text-[11px] text-[#999999]">お食事のご案内</p>
