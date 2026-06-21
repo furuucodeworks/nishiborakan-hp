@@ -128,14 +128,24 @@ export default function Accommodation() {
         <div className="flex flex-col items-center gap-6 sm:max-w-xl sm:mx-auto lg:max-w-4xl">
           <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Dormitory</h2>
           <p className="text-[11px] text-[#999999]">ドミトリーのご案内</p>
-          <p className="text-[13px] text-[#555555] text-left leading-[1.8] w-full">
-            ドミトリーは、一部屋に複数のベッドが設置された共同宿泊スペースです。各ベッドはプライバシーを確保するためカーテンなどで仕切られています。このタイプの部屋は男女混合です。
+          <p className="text-[13px] text-[#555555] text-left leading-[1.8] w-full lg:w-[450px]">
+            ドミトリーは、一部屋に複数のベッドが設置された共同宿泊スペースです。
+            <br />
+            各ベッドはプライバシーを確保するためカーテンなどで仕切られています。
+            <br />
+            このタイプの部屋は男女混合です。
             <br />
             <br />
-            2段ベッドタイプとシングルベッドタイプの2種類の部屋があり、それぞれ料金が異なります。ご予約の際はご確認ください。
+            2段ベッドタイプとシングルベッドタイプの2種類の部屋があり、それぞれ料金が異なります。
+            <br />
+            ご予約の際はご確認ください。
           </p>
-          <p className="text-[13px] font-bold text-[#c0392b] text-left leading-[1.8] w-full">
-            1人につき1ベッドのご利用となります。お子様が添い寝する場合も、1人としてカウントし料金をいただきます。またグループ貸切をする場合は+1万円発生します。
+          <p className="text-[13px] font-bold text-[#c0392b] text-left leading-[1.8] w-full lg:w-[450px]">
+            1人につき1ベッドのご利用となります。
+            <br />
+            お子様が添い寝する場合も、1人としてカウントし料金をいただきます。
+            <br />
+            またグループ貸切をする場合は+1万円発生します。
           </p>
           <div className="grid grid-cols-1 gap-6 w-full lg:grid-cols-2">
             {dormPlans.map((plan) => (
@@ -152,8 +162,10 @@ export default function Accommodation() {
         <div className="flex flex-col items-center gap-6 sm:max-w-xl sm:mx-auto lg:max-w-5xl">
           <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Private Room</h2>
           <p className="text-[11px] text-[#999999]">個室のご案内</p>
-          <p className="text-[13px] text-[#555555] text-left leading-[1.8] w-full">
-            こちらはファミリーやグループに最適なお部屋です。料金は部屋単位で設定されているため、宿泊人数が変わっても料金は変動しません。
+          <p className="text-[13px] text-[#555555] text-left leading-[1.8] w-full lg:w-[450px]">
+            こちらはファミリーやグループに最適なお部屋です。
+            <br />
+            料金は部屋単位で設定されているため、宿泊人数が変わっても料金は変動しません。
           </p>
           <div className="grid grid-cols-1 gap-6 w-full lg:grid-cols-3">
             {privatePlans.map((plan) => (
