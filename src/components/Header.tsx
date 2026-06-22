@@ -44,14 +44,12 @@ export default function Header() {
 
       {isOpen && (
         <nav className="lg:hidden flex flex-col bg-white border-t border-[#eeeeee]">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`text-sm text-[#555555] px-5 py-4 border-b border-[#eeeeee] ${
-                index % 2 === 0 ? "bg-[#f0f0f0]" : "bg-white"
-              }`}
+              className="text-sm text-[#555555] px-5 py-4 border-b border-[#eeeeee]"
             >
               {link.label}
             </Link>
