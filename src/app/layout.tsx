@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -41,47 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col antialiased">
-        <header className="flex items-center justify-between px-5 h-14 bg-white lg:px-16 lg:h-16">
-          <Link
-            href="/"
-            className="text-xs font-bold tracking-[0.2em] text-[#333333]"
-          >
-            NISHIBORAKAN
-          </Link>
-          <nav className="hidden lg:flex gap-8">
-            <Link
-              href="/accommodation"
-              className="text-xs text-[#555555] hover:text-[#333333]"
-            >
-              宿泊
-            </Link>
-            <Link
-              href="/meals"
-              className="text-xs text-[#555555] hover:text-[#333333]"
-            >
-              食事
-            </Link>
-            <Link
-              href="/facilities"
-              className="text-xs text-[#555555] hover:text-[#333333]"
-            >
-              部屋・施設
-            </Link>
-            <Link
-              href="/access"
-              className="text-xs text-[#555555] hover:text-[#333333]"
-            >
-              アクセス
-            </Link>
-            <Link
-              href="/contact"
-              className="text-xs text-[#555555] hover:text-[#333333]"
-            >
-              お問い合わせ
-            </Link>
-          </nav>
-          <span className="text-xl text-[#333333] lg:hidden">≡</span>
-        </header>
+        <Header />
 
         {children}
 
