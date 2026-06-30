@@ -15,7 +15,7 @@ export default function Home() {
       {/* ヒーロー */}
       <div className="relative h-[460px] lg:h-[600px]">
         <Image
-          src="/hero.png"
+          src="/images/home/hero.png"
           alt="GUEST HOUSE NISHIBORAKAN 外観"
           fill
           className="object-cover"
@@ -46,7 +46,7 @@ export default function Home() {
           {/* デスクトップ用画像 */}
           <div className="hidden lg:block relative w-full h-[220px] rounded-sm shrink-0 lg:w-1/2 lg:h-[320px]">
             <Image
-              src="/aroom.jpg"
+              src="/images/home/aroom.jpg"
               alt="客室の様子"
               fill
               className="object-cover rounded-sm"
@@ -60,7 +60,7 @@ export default function Home() {
             {/* モバイル用画像 */}
             <div className="lg:hidden relative w-full h-[220px] rounded-sm">
               <Image
-                src="/aroom.jpg"
+                src="/images/home/aroom.jpg"
                 alt="客室の様子"
                 fill
                 className="object-cover rounded-sm"
@@ -89,7 +89,7 @@ export default function Home() {
           {/* デスクトップ用画像 */}
           <div className="hidden lg:block relative w-full h-[220px] rounded-sm shrink-0 lg:w-1/2 lg:h-[320px]">
             <Image
-              src="/dinnersample.png"
+              src="/images/home/dinnersample.png"
               alt="夕食の様子"
               fill
               className="object-cover rounded-sm"
@@ -103,7 +103,7 @@ export default function Home() {
             {/* モバイル用画像 */}
             <div className="lg:hidden relative w-full h-[220px] rounded-sm">
               <Image
-                src="/dinnersample.png"
+                src="/images/home/dinnersample.png"
                 alt="夕食の様子"
                 fill
                 className="object-cover rounded-sm"

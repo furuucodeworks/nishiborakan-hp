@@ -26,7 +26,7 @@ const dormPlans: Plan[] = [
       ["年末年始", "¥4,500"],
     ],
     desc: "プライバシーに配慮したカーテン付きの2段ベッドです。スキー・スノーボード仲間との出会いも楽しめます。",
-    img: "/dorm-bunk.jpeg",
+    img: "/images/accommodation/dorm-bunk.jpeg",
   },
   {
     name: "MIXドミトリー シングルベッド",
@@ -37,7 +37,7 @@ const dormPlans: Plan[] = [
       ["年末年始", "¥6,000"],
     ],
     desc: "ゆとりのあるシングルベッドタイプのドミトリーです。一人旅にもおすすめです。",
-    img: "/dorm-single.jpg",
+    img: "/images/accommodation/dorm-single.jpg",
   },
 ];
 
@@ -51,7 +51,7 @@ const privatePlans: Plan[] = [
       ["年末年始", "¥40,000"],
     ],
     desc: "グループやファミリーでの利用に最適な個室です。荷物を気にせずゆったりお過ごしいただけます。",
-    img: "/typea.jpg",
+    img: "/images/accommodation/typea.jpg",
   },
   {
     name: "個室 TypeB",
@@ -62,7 +62,7 @@ const privatePlans: Plan[] = [
       ["年末年始", "¥48,000"],
     ],
     desc: "少人数のグループ旅行にぴったりのコンパクトな個室です。",
-    img: "/typeb.jpg",
+    img: "/images/accommodation/typeb.jpg",
   },
   {
     name: "個室 TypeD",
@@ -73,7 +73,7 @@ const privatePlans: Plan[] = [
       ["年末年始", "¥27,000"],
     ],
     desc: "ご夫婦やカップルでの利用にもおすすめの個室です。",
-    img: "/typed.jpg",
+    img: "/images/accommodation/typed.jpg",
   },
 ];
 

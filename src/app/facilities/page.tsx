@@ -1,26 +1,28 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { FacilityImages, type Facility } from "./FacilityImages";
 
 export const metadata: Metadata = {
   title: "部屋・施設 | GUEST HOUSE NISHIBORAKAN",
   description:
-    "受付・共用スペース・売店・食堂・お風呂・乾燥室・洗面所など、館内施設をご案内します。",
-};
-
-type Facility = {
-  name: string;
-  img?: string;
+    "受付・共用スペース・売店・食堂・お風呂・洗面所など、館内施設をご案内します。",
 };
 
 const facilities: Facility[] = [
-  { name: "受付", img: "/uketuke.jpg" },
-  { name: "共用スペース" },
-  { name: "売店" },
-  { name: "食堂" },
-  { name: "風呂（脱衣所）" },
-  { name: "風呂（浴槽）" },
-  { name: "乾燥室" },
-  { name: "洗面所" },
+  { name: "受付", images: ["/images/facilities/uketuke.jpg"] },
+  { name: "共用スペース", images: ["/images/facilities/kyouyou1.jpg", "/images/facilities/kyouyou2.jpg", "/images/facilities/kyouyou3.jpg"] },
+  { name: "売店", images: [] },
+  { name: "食堂", images: ["/images/facilities/eatingroom.jpg"] },
+  { name: "風呂（脱衣所）", images: ["/images/facilities/menchangingroom.jpg"] },
+  {
+    name: "風呂（浴槽）",
+    images: [
+      "/images/facilities/menbuth.jpg",
+      "/images/facilities/menshower.jpg",
+      "/images/facilities/womenbuth.jpg",
+      "/images/facilities/womenshower.jpg",
+    ],
+  },
+  { name: "洗面所", images: ["/images/facilities/washroom.jpg"] },
 ];
 
 export default function Facilities() {
@@ -44,31 +46,16 @@ export default function Facilities() {
               }`}
             >
               {/* デスクトップ用画像 */}
-              <div className="hidden lg:block relative w-full h-[220px] rounded-sm shrink-0 bg-gray-200 lg:w-1/2 lg:h-[320px]">
-                {facility.img && (
-                  <Image
-                    src={facility.img}
-                    alt={facility.name}
-                    fill
-                    className="object-cover rounded-sm"
-                  />
-                )}
-              </div>
+              <FacilityImages
+                facility={facility}
+                className="hidden lg:block w-full h-[320px] shrink-0 lg:w-1/2"
+              />
               <div className="flex flex-col items-center gap-3 w-full lg:w-auto lg:items-start">
                 <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">
                   {facility.name}
                 </h2>
                 {/* モバイル用画像 */}
-                <div className="lg:hidden relative w-full h-[220px] rounded-sm bg-gray-200">
-                  {facility.img && (
-                    <Image
-                      src={facility.img}
-                      alt={facility.name}
-                      fill
-                      className="object-cover rounded-sm"
-                    />
-                  )}
-                </div>
+                <FacilityImages facility={facility} className="lg:hidden w-full h-[220px]" />
               </div>
             </div>
           </section>

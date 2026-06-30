@@ -40,7 +40,7 @@ export default function Meals() {
           <div className="w-full bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="relative w-full h-[220px]">
               <Image
-                src="/dinnersample.png"
+                src="/images/home/dinnersample.png"
                 alt="夕食の様子"
                 fill
                 className="object-cover"
