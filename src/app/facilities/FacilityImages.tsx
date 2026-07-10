@@ -6,6 +6,7 @@ import Image from "next/image";
 export type Facility = {
   name: string;
   images: string[];
+  imageFit?: "cover" | "contain";
 };
 
 export function FacilityImages({
@@ -18,7 +19,7 @@ export function FacilityImages({
   const [index, setIndex] = useState(0);
 
   if (facility.images.length === 0) {
-    return <div className={`${className} bg-gray-200`} />;
+    return <div className={`overflow-hidden rounded-sm ${className} bg-gray-200`} />;
   }
 
   const hasMultiple = facility.images.length > 1;
@@ -28,13 +29,21 @@ export function FacilityImages({
   const goToPrev = () => setIndex((i) => (i - 1 + count) % count);
   const goToNext = () => setIndex((i) => (i + 1) % count);
 
+  const isContain = facility.imageFit === "contain";
+
   return (
-    <div className={`relative ${className} bg-gray-200`}>
+    <div
+      className={`relative overflow-hidden rounded-sm ${className} ${
+        isContain ? "bg-white" : "bg-gray-200"
+      }`}
+    >
       <Image
         src={facility.images[currentIndex]}
         alt={`${facility.name} ${currentIndex + 1}`}
         fill
-        className="object-cover rounded-sm"
+        unoptimized={isContain}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        className={isContain ? "object-contain" : "object-cover"}
       />
       {hasMultiple && (
         <>

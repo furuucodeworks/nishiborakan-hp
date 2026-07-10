@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const facilities: Facility[] = [
   { name: "受付", images: ["/images/facilities/uketuke.jpg"] },
   { name: "共用スペース", images: ["/images/facilities/kyouyou1.jpg", "/images/facilities/kyouyou2.jpg", "/images/facilities/kyouyou3.jpg"] },
-  { name: "売店", images: [] },
+  { name: "売店", images: ["/images/facilities/baiten.jpg"], imageFit: "contain" },
   { name: "食堂", images: ["/images/facilities/eatingroom.jpg"] },
   { name: "風呂（脱衣所）", images: ["/images/facilities/menchangingroom.jpg"] },
   {
@@ -48,14 +48,25 @@ export default function Facilities() {
               {/* デスクトップ用画像 */}
               <FacilityImages
                 facility={facility}
-                className="hidden lg:block w-full h-[320px] shrink-0 lg:w-1/2"
+                className={
+                  facility.name === "売店"
+                    ? "hidden lg:block w-full h-[420px] shrink-0 lg:w-1/2"
+                    : "hidden lg:block w-full h-[320px] shrink-0 lg:w-1/2"
+                }
               />
               <div className="flex flex-col items-center gap-3 w-full lg:w-auto lg:items-start">
                 <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">
                   {facility.name}
                 </h2>
                 {/* モバイル用画像 */}
-                <FacilityImages facility={facility} className="lg:hidden w-full h-[220px]" />
+                <FacilityImages
+                  facility={facility}
+                  className={
+                    facility.name === "売店"
+                      ? "lg:hidden w-full h-[320px]"
+                      : "lg:hidden w-full h-[220px]"
+                  }
+                />
               </div>
             </div>
           </section>
