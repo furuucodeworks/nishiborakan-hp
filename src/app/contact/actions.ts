@@ -23,6 +23,17 @@ function asCount(value: string) {
   return Number(value);
 }
 
+function web3formsErrorMessage(detail?: string) {
+  const raw = detail?.toLowerCase() ?? "";
+  if (raw.includes("invalid") && raw.includes("key")) {
+    return "送信キーが無効です。Vercel の WEB3FORMS_ACCESS_KEY が最新か確認してください。";
+  }
+  if (raw.includes("verif")) {
+    return "Web3Forms の確認メール内のリンクを開いて、受信メールを有効にしてください。";
+  }
+  return "送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。";
+}
+
 export async function submitContact(
   _prev: ContactState,
   formData: FormData,
@@ -99,7 +110,7 @@ export async function submitContact(
     return { ok: false, message: "子供の人数を正しく入力してください。" };
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim();
   if (!accessKey) {
     return {
       ok: false,
@@ -138,12 +149,16 @@ export async function submitContact(
       }),
     });
 
-    const data = (await response.json()) as { success?: boolean };
+    const data = (await response.json()) as {
+      success?: boolean;
+      message?: string;
+    };
 
     if (!response.ok || !data.success) {
+      console.error("Web3Forms submit failed", data.message ?? response.status);
       return {
         ok: false,
-        message: "送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。",
+        message: web3formsErrorMessage(data.message),
       };
     }
   } catch {
