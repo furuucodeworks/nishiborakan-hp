@@ -7,11 +7,12 @@ import {
   INQUIRY_TYPES,
   ROOM_TYPES,
 } from "@/app/contact/fields";
-
-type ContactState = {
-  ok: boolean;
-  message: string;
-};
+import {
+  parseInquiryForm,
+  toWeb3FormsBody,
+  web3formsErrorMessage,
+  type ContactState,
+} from "@/app/contact/payload";
 
 const initialState: ContactState = { ok: false, message: "" };
 
@@ -20,7 +21,7 @@ const fieldClass =
 
 const labelClass = "text-[11px] text-[#999999] tracking-wide";
 
-export default function ContactForm() {
+export default function ContactForm({ accessKey }: { accessKey: string }) {
   const [state, setState] = useState<ContactState>(initialState);
   const [pending, setPending] = useState(false);
   const [inquiryType, setInquiryType] = useState("");
@@ -33,12 +34,41 @@ export default function ContactForm() {
     setState(initialState);
 
     try {
-      const response = await fetch("/api/contact", {
+      const parsed = parseInquiryForm(new FormData(event.currentTarget));
+      if (!parsed.ok || !("fields" in parsed)) {
+        setState(parsed);
+        return;
+      }
+
+      if (!accessKey) {
+        setState({
+          ok: false,
+          message: "送信設定が完了していません。お手数ですがお電話でお問い合わせください。",
+        });
+        return;
+      }
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: new FormData(event.currentTarget),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(toWeb3FormsBody(accessKey, parsed.fields)),
       });
-      const data = (await response.json()) as ContactState;
-      setState(data);
+      const data = (await response.json()) as { success?: boolean; message?: string };
+      if (!response.ok || !data.success) {
+        setState({
+          ok: false,
+          message: web3formsErrorMessage(data.message),
+        });
+        return;
+      }
+
+      setState({
+        ok: true,
+        message: "送信しました。内容を確認のうえご連絡いたします。",
+      });
     } catch {
       setState({
         ok: false,

@@ -3,6 +3,8 @@ import ContactForm from "@/components/ContactForm";
 
 const PHONE = "070-5667-7101";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "お問い合わせ | GUEST HOUSE NISHIBORAKAN",
   description:
@@ -52,7 +54,7 @@ export default function Contact() {
           <p className="text-[13px] text-[#555555] text-center leading-[1.8] w-full">
             空室確認・ご予約はフォームからもお問い合わせいただけます。内容を確認のうえ、ご連絡いたします。
           </p>
-          <ContactForm />
+          <ContactForm accessKey={process.env.WEB3FORMS_ACCESS_KEY?.trim() ?? ""} />
         </div>
       </section>
 
