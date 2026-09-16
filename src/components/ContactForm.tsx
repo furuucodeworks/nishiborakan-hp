@@ -1,13 +1,17 @@
 "use client";
 
-import { useActionState, useState } from "react";
-import { submitContact, type ContactState } from "@/app/contact/actions";
+import { useState, type FormEvent } from "react";
 import {
   CHECK_IN_TIMES,
   DINNER_OPTIONS,
   INQUIRY_TYPES,
   ROOM_TYPES,
 } from "@/app/contact/fields";
+
+type ContactState = {
+  ok: boolean;
+  message: string;
+};
 
 const initialState: ContactState = { ok: false, message: "" };
 
@@ -17,10 +21,33 @@ const fieldClass =
 const labelClass = "text-[11px] text-[#999999] tracking-wide";
 
 export default function ContactForm() {
-  const [state, formAction, pending] = useActionState(submitContact, initialState);
+  const [state, setState] = useState<ContactState>(initialState);
+  const [pending, setPending] = useState(false);
   const [inquiryType, setInquiryType] = useState("");
   const vacancyRequired = inquiryType === "空室確認";
   const messageRequired = inquiryType === "その他";
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setPending(true);
+    setState(initialState);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: new FormData(event.currentTarget),
+      });
+      const data = (await response.json()) as ContactState;
+      setState(data);
+    } catch {
+      setState({
+        ok: false,
+        message: "送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。",
+      });
+    } finally {
+      setPending(false);
+    }
+  }
 
   if (state.ok) {
     return (
@@ -33,7 +60,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form action={formAction} className="flex flex-col gap-5 w-full">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full">
       <input
         type="text"
         name="botcheck"
