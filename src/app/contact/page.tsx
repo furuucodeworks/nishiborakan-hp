@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 
 const PHONE = "070-5667-7101";
-const INSTAGRAM_URL = "https://www.instagram.com/guesthouse_nishiborakan/";
-const INSTAGRAM_HANDLE = "@guesthouse_nishiborakan";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | GUEST HOUSE NISHIBORAKAN",
   description:
-    "空室確認・ご予約はお電話またはInstagramのDMでお問い合わせください。070-5667-7101（15:00〜21:00）。",
+    "空室確認・ご予約はお電話またはお問い合わせフォームでご連絡ください。070-5667-7101（15:00〜21:00）。",
 };
 
 export default function Contact() {
@@ -27,7 +26,7 @@ export default function Contact() {
         <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:max-w-2xl">
           <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Phone</h2>
           <p className="text-[11px] text-[#999999]">電話</p>
-          <div className="flex flex-col gap-2 w-full text-center lg:text-left">
+          <div className="flex flex-col gap-2 w-full text-center">
             <a
               href={`tel:${PHONE}`}
               className="text-lg font-bold text-[#333333] tracking-wide"
@@ -45,22 +44,15 @@ export default function Contact() {
 
       <hr className="border-[#eeeeee]" />
 
-      {/* Instagram */}
+      {/* お問い合わせフォーム */}
       <section className="py-12 px-8 bg-white lg:py-20">
         <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:max-w-2xl">
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Instagram</h2>
-          <p className="text-[11px] text-[#999999]">Instagram</p>
-          <p className="text-[13px] text-[#555555] text-center leading-[1.8] lg:text-left w-full">
-            DMでのお問い合わせも受け付けております。
+          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Form</h2>
+          <p className="text-[11px] text-[#999999]">お問い合わせフォーム</p>
+          <p className="text-[13px] text-[#555555] text-center leading-[1.8] w-full">
+            空室確認・ご予約はフォームからもお問い合わせいただけます。内容を確認のうえ、ご連絡いたします。
           </p>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] text-[#555555]"
-          >
-            📷 {INSTAGRAM_HANDLE}
-          </a>
+          <ContactForm />
         </div>
       </section>
 
