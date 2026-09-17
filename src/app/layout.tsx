@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import "./globals.css";
 
+// 独自ドメインが決まったら、下の metadata に次の1行を追加する。
+// metadataBase: new URL("https://ここに本番ドメイン"),
 export const metadata: Metadata = {
   title: "GUEST HOUSE NISHIBORAKAN",
   description: "鷲ヶ岳スキー場に一番近いゲストハウス",
   openGraph: {
     title: "GUEST HOUSE NISHIBORAKAN",
     description: "鷲ヶ岳スキー場に一番近いゲストハウス",
-    url: "https://nishiborakan-hp.vercel.app",
     siteName: "GUEST HOUSE NISHIBORAKAN",
     locale: "ja_JP",
     type: "website",
     images: [
       {
-        url: "https://nishiborakan-hp.vercel.app/hero.png",
+        url: "/images/home/hero.png",
         alt: "GUEST HOUSE NISHIBORAKAN",
       },
     ],

@@ -39,7 +39,7 @@ function asCount(value: string) {
 export function web3formsErrorMessage(detail?: string) {
   const raw = detail?.toLowerCase() ?? "";
   if (raw.includes("invalid") && raw.includes("key")) {
-    return "送信キーが無効です。Vercel の WEB3FORMS_ACCESS_KEY が最新か確認してください。";
+    return "送信キーが無効です。WEB3FORMS_ACCESS_KEY が最新か確認してください。";
   }
   if (raw.includes("verif")) {
     return "Web3Forms の確認メール内のリンクを開いて、受信メールを有効にしてください。";

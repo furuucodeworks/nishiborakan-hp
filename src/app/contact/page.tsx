@@ -3,8 +3,6 @@ import ContactForm from "@/components/ContactForm";
 
 const PHONE = "070-5667-7101";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "お問い合わせ | GUEST HOUSE NISHIBORAKAN",
   description:
