@@ -21,9 +21,9 @@ const dormPlans: Plan[] = [
     name: "MIXドミトリー 2段ベッド",
     sub: "MAX 6名",
     prices: [
-      ["平日", "¥2,500"],
-      ["休日前", "¥3,500"],
-      ["年末年始", "¥4,500"],
+      ["平日", "¥3,000"],
+      ["休日前", "¥4,000"],
+      ["年末年始", "¥5,000"],
     ],
     desc: "プライバシーに配慮したカーテン付きの2段ベッドです。スキー・スノーボード仲間との出会いも楽しめます。",
     img: "/images/accommodation/dorm-bunk.jpeg",
@@ -114,10 +114,11 @@ function PlanCard({ plan }: { plan: Plan }) {
 export default function Accommodation() {
   return (
     <main>
-
       {/* ページタイトル */}
       <section className="py-16 px-8 bg-[#f0f0f0] text-center lg:py-24">
-        <p className="text-[11px] text-[#999999] tracking-widest mb-2">ACCOMMODATION</p>
+        <p className="text-[11px] text-[#999999] tracking-widest mb-2">
+          ACCOMMODATION
+        </p>
         <h1 className="text-2xl font-bold tracking-[0.2em] text-[#333333] lg:text-3xl">
           宿泊プラン・料金
         </h1>
@@ -126,7 +127,9 @@ export default function Accommodation() {
       {/* ドミトリーセクション */}
       <section className="py-12 px-8 bg-white lg:py-20">
         <div className="flex flex-col items-center gap-6 sm:max-w-xl sm:mx-auto lg:max-w-4xl">
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Dormitory</h2>
+          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">
+            Dormitory
+          </h2>
           <p className="text-[11px] text-[#999999]">ドミトリーのご案内</p>
           <p className="text-[13px] text-[#555555] text-left leading-[1.8] w-full lg:w-[450px]">
             ドミトリーは、一部屋に複数のベッドが設置された共同宿泊スペースです。
@@ -160,7 +163,9 @@ export default function Accommodation() {
       {/* プライベートルームセクション */}
       <section className="py-12 px-8 bg-white lg:py-20">
         <div className="flex flex-col items-center gap-6 sm:max-w-xl sm:mx-auto lg:max-w-5xl">
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Private Room</h2>
+          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">
+            Private Room
+          </h2>
           <p className="text-[11px] text-[#999999]">個室のご案内</p>
           <p className="text-[13px] text-[#555555] text-left leading-[1.8] w-full lg:w-[450px]">
             こちらはファミリーやグループに最適なお部屋です。
@@ -174,7 +179,6 @@ export default function Accommodation() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
