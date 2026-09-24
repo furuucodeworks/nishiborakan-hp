@@ -279,7 +279,7 @@ export default function ContactForm({ accessKey }: { accessKey: string }) {
       <button
         type="submit"
         disabled={pending}
-        className="flex items-center justify-center w-full h-11 bg-[#333333] rounded-lg text-white text-xs disabled:opacity-50"
+        className="flex items-center justify-center w-full h-11 bg-[#333333] rounded-lg text-white text-xs transition-colors duration-200 enabled:hover:bg-[#555555] disabled:cursor-not-allowed disabled:opacity-50"
       >
         {pending ? "送信中..." : "送信する"}
       </button>

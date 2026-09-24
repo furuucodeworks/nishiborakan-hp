@@ -102,7 +102,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         <p className="text-[13px] text-[#555555] leading-[1.8]">{plan.desc}</p>
         <Link
           href="/contact"
-          className="mt-auto flex items-center justify-center w-full h-11 bg-[#333333] rounded-lg text-white text-xs"
+          className="mt-auto flex items-center justify-center w-full h-11 bg-[#333333] rounded-lg text-white text-xs transition-colors duration-200 hover:bg-[#555555]"
         >
           空室確認
         </Link>

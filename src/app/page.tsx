@@ -33,7 +33,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="mt-4 inline-block border border-white text-[9px] px-[60px] py-2 rounded-lg lg:text-xs lg:mt-6"
+            className="mt-4 inline-block border border-white text-[9px] px-[60px] py-2 rounded-lg transition-colors duration-200 hover:bg-white hover:text-[#333333] lg:text-xs lg:mt-6"
           >
             空室を確認する
           </Link>
@@ -73,7 +73,7 @@ export default function Home() {
             </p>
             <Link
               href="/accommodation"
-              className="border border-[#333333] text-[12px] text-[#333333] px-[60px] py-2 rounded-lg"
+              className="border border-[#333333] text-[12px] text-[#333333] px-[60px] py-2 rounded-lg transition-colors duration-200 hover:bg-[#333333] hover:text-white"
             >
               Room Information
             </Link>
@@ -116,7 +116,7 @@ export default function Home() {
             </p>
             <Link
               href="/meals"
-              className="border border-[#333333] text-[12px] text-[#333333] px-[60px] py-2 rounded-lg"
+              className="border border-[#333333] text-[12px] text-[#333333] px-[60px] py-2 rounded-lg transition-colors duration-200 hover:bg-[#333333] hover:text-white"
             >
               Meal Information
             </Link>
@@ -146,7 +146,7 @@ export default function Home() {
           ))}
           <Link
             href="/accommodation"
-            className="mt-5 flex items-center justify-center w-full h-[52px] bg-[#333333] rounded-lg text-white text-sm"
+            className="mt-5 flex items-center justify-center w-full h-[52px] bg-[#333333] rounded-lg text-white text-sm transition-colors duration-200 hover:bg-[#555555]"
           >
             宿泊についてはこちら
           </Link>
@@ -165,7 +165,7 @@ export default function Home() {
               href="https://goo.gl/maps/jnDoPDMRp4hcGeDSA"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-[#555555]"
+              className="text-[11px] text-[#555555] transition-colors duration-200 hover:text-[#333333] hover:underline underline-offset-4"
             >
               📍 Google Maps で表示
             </a>

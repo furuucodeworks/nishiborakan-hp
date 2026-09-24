@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 const MAP_LINK = "https://goo.gl/maps/jnDoPDMRp4hcGeDSA";
 const MAP_EMBED =
@@ -24,14 +25,32 @@ export default function Access() {
 
       {/* 所在地 */}
       <section className="py-12 px-8 bg-white lg:py-20">
-        <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:max-w-2xl">
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Location</h2>
-          <p className="text-[11px] text-[#999999]">所在地</p>
-          <p className="text-[13px] text-[#555555] text-center leading-[1.8] lg:text-left w-full">
-            岐阜県奥美濃エリア
-            <br />
-            鷲ヶ岳スキー場の敷地内（料金所を超えた先）
-          </p>
+        <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:flex-row lg:gap-16 lg:max-w-4xl">
+          <div className="hidden lg:block relative w-full h-[320px] rounded-sm shrink-0 lg:w-1/2">
+            <Image
+              src="/images/access/ryoukinjo.jpg"
+              alt="鷲ヶ岳スキー場の料金所"
+              fill
+              className="object-cover rounded-sm"
+            />
+          </div>
+          <div className="flex flex-col items-center gap-5 w-full lg:w-auto lg:items-start">
+            <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Location</h2>
+            <p className="text-[11px] text-[#999999]">所在地</p>
+            <div className="lg:hidden relative w-full h-[220px] rounded-sm">
+              <Image
+                src="/images/access/ryoukinjo.jpg"
+                alt="鷲ヶ岳スキー場の料金所"
+                fill
+                className="object-cover rounded-sm"
+              />
+            </div>
+            <p className="text-[13px] text-[#555555] text-center leading-[1.8] lg:text-left w-full">
+              岐阜県奥美濃エリア
+              <br />
+              鷲ヶ岳スキー場の敷地内（料金所を超えた先）
+            </p>
+          </div>
         </div>
       </section>
 
@@ -39,14 +58,32 @@ export default function Access() {
 
       {/* 駐車場 */}
       <section className="py-12 px-8 bg-white lg:py-20">
-        <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:max-w-2xl">
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Parking</h2>
-          <p className="text-[11px] text-[#999999]">駐車場</p>
-          <p className="text-[13px] text-[#555555] text-center leading-[1.8] lg:text-left w-full">
-            駐車場をご用意しております。
-            <br />
-            満車の場合は CAFENANASHI 隣の駐車場をご利用ください。
-          </p>
+        <div className="flex flex-col items-center gap-5 sm:max-w-xl sm:mx-auto lg:flex-row-reverse lg:gap-16 lg:max-w-4xl">
+          <div className="hidden lg:block relative w-full h-[360px] rounded-sm shrink-0 bg-white lg:w-1/2">
+            <Image
+              src="/images/access/parking.jpg"
+              alt="NISHIBORAKANの駐車場案内"
+              fill
+              className="object-contain rounded-sm"
+            />
+          </div>
+          <div className="flex flex-col items-center gap-5 w-full lg:w-auto lg:items-start">
+            <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">Parking</h2>
+            <p className="text-[11px] text-[#999999]">駐車場</p>
+            <div className="lg:hidden relative w-full h-[280px] rounded-sm bg-white">
+              <Image
+                src="/images/access/parking.jpg"
+                alt="NISHIBORAKANの駐車場案内"
+                fill
+                className="object-contain rounded-sm"
+              />
+            </div>
+            <p className="text-[13px] text-[#555555] text-center leading-[1.8] lg:text-left w-full">
+              駐車場をご用意しております。
+              <br />
+              満車の場合は CAFENANASHI 隣の駐車場をご利用ください。
+            </p>
+          </div>
         </div>
       </section>
 
@@ -70,7 +107,7 @@ export default function Access() {
             href={MAP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] text-[#555555]"
+            className="text-[11px] text-[#555555] transition-colors duration-200 hover:text-[#333333] hover:underline underline-offset-4"
           >
             📍 Google Maps で表示
           </a>

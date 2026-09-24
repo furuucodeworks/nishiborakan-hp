@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import "./globals.css";
 
-// 独自ドメインが決まったら、下の metadata に次の1行を追加する。
-// metadataBase: new URL("https://ここに本番ドメイン"),
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nishiborakan.com"),
   title: "GUEST HOUSE NISHIBORAKAN",
-  description: "鷲ヶ岳スキー場に一番近いゲストハウス",
+  description:
+    "鷲ヶ岳スキー場に徒歩すぐのゲストハウス「NISHIBORAKAN」。ドミトリー¥3,000〜、個室¥25,000〜。夕食は鍋。12月〜3月営業。",
   openGraph: {
     title: "GUEST HOUSE NISHIBORAKAN",
-    description: "鷲ヶ岳スキー場に一番近いゲストハウス",
+    description:
+      "鷲ヶ岳スキー場に徒歩すぐのゲストハウス「NISHIBORAKAN」。ドミトリー¥3,000〜、個室¥25,000〜。夕食は鍋。12月〜3月営業。",
     siteName: "GUEST HOUSE NISHIBORAKAN",
     locale: "ja_JP",
     type: "website",
@@ -50,6 +51,26 @@ export default function RootLayout({
           <p className="text-[11px] tracking-[0.2em] font-bold text-[#333333]">
             GUEST HOUSE NISHIBORAKAN
           </p>
+          <a
+            href="https://www.instagram.com/guesthouse_nishiborakan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-[#333333] transition-opacity duration-200 hover:opacity-60"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className="h-[18px] w-[18px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
           <p className="text-[10px] text-[#666666]">
             © 2024 NISHIBORAKAN. All rights reserved.
           </p>

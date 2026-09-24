@@ -17,7 +17,10 @@ export default function Header() {
   return (
     <header className="bg-white">
       <div className="flex items-center justify-between px-5 h-14 lg:px-16 lg:h-16">
-        <Link href="/" className="text-xs font-bold tracking-[0.2em] text-[#333333]">
+        <Link
+          href="/"
+          className="text-xs font-bold tracking-[0.2em] text-[#333333] transition-opacity duration-200 hover:opacity-60"
+        >
           NISHIBORAKAN
         </Link>
 
@@ -26,7 +29,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs text-[#555555] hover:text-[#333333]"
+              className="text-xs text-[#555555] transition-colors duration-200 hover:text-[#333333] hover:underline underline-offset-4"
             >
               {link.label}
             </Link>
@@ -35,7 +38,7 @@ export default function Header() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-xl text-[#333333] lg:hidden"
+          className="text-xl text-[#333333] transition-opacity duration-200 hover:opacity-50 lg:hidden"
           aria-label="メニューを開く"
         >
           {isOpen ? "×" : "≡"}
@@ -49,7 +52,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-sm text-[#555555] px-5 py-4 border-b border-[#eeeeee]"
+              className="text-sm text-[#555555] px-5 py-4 border-b border-[#eeeeee] transition-colors duration-200 hover:bg-[#f0f0f0] hover:text-[#333333]"
             >
               {link.label}
             </Link>

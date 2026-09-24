@@ -29,7 +29,7 @@ export default function Contact() {
           <div className="flex flex-col gap-2 w-full text-center">
             <a
               href={`tel:${PHONE}`}
-              className="text-lg font-bold text-[#333333] tracking-wide"
+              className="text-lg font-bold text-[#333333] tracking-wide transition-colors duration-200 hover:text-[#555555] hover:underline underline-offset-4"
             >
               {PHONE}
             </a>

@@ -66,7 +66,7 @@ export default function Meals() {
 
               <Link
                 href="/contact"
-                className="mt-5 flex items-center justify-center w-full h-11 bg-[#333333] rounded-lg text-white text-xs"
+                className="mt-5 flex items-center justify-center w-full h-11 bg-[#333333] rounded-lg text-white text-xs transition-colors duration-200 hover:bg-[#555555]"
               >
                 夕食を予約する
               </Link>
