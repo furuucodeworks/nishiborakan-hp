@@ -7,13 +7,12 @@ export const ROOM_TYPES = [
   "個室 TypeD",
 ] as const;
 export const CHECK_IN_TIMES = [
-  "16:00",
-  "17:00",
-  "18:00",
-  "19:00",
-  "20:00",
-  "21:00",
-  "22:00",
+  "16:00〜17:00",
+  "17:00〜18:00",
+  "18:00〜19:00",
+  "19:00〜20:00",
+  "20:00〜21:00",
+  "21:00〜22:00",
 ] as const;
 export const DINNER_OPTIONS = ["あり", "なし"] as const;
 
