@@ -5,12 +5,12 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "宿泊プラン・料金 | GUEST HOUSE NISHIBORAKAN",
   description:
-    "MIXドミトリー平日¥2,500〜、個室TypeA平日¥25,000〜。鷲ヶ岳スキー場に一番近いゲストハウスの宿泊プランをご案内します。",
+    "MIXドミトリー平日¥3,000〜、個室4-5名は平日¥25,000〜。鷲ヶ岳スキー場に一番近いゲストハウスの宿泊プランをご案内します。",
 };
 
 type Plan = {
   name: string;
-  sub: string;
+  sub?: string;
   prices: [string, string][];
   desc: string;
   img?: string;
@@ -41,10 +41,36 @@ const dormPlans: Plan[] = [
   },
 ];
 
+const stayNotes = [
+  "チェックイン時間が予定時間を過ぎる場合は、事前にご連絡ください。",
+  "ナイターに行かれるお客様はナイター前にチェックインを済ませていただくことをお勧めします。",
+  "館内は禁煙です（喫煙スペースあり）。館内での喫煙が確認された場合（疑わしい場合も含む）罰金¥10,000を申し受けます。",
+  "門限はありませんが、消灯時間は23:00です。以降は他のお客様へのご配慮をお願いし、静かにお過ごしください。",
+  "貴重品は各自で管理をお願いいたします。紛失や盗難などの責任は負いかねます。",
+  "当ゲストハウスは共用設備が中心です。マナーとルールを守ってご利用ください。",
+  "お車でお越しの際は、必ずスタッドレスタイヤを装着し、チェーンをご持参ください。",
+];
+
+const cancelFees: [string, string][] = [
+  ["4-5日前", "50%"],
+  ["2-3日前", "70%"],
+  ["前日", "100%"],
+  ["当日", "100%＋夕食費"],
+];
+
 const privatePlans: Plan[] = [
   {
-    name: "個室 TypeA",
-    sub: "4-5人部屋",
+    name: "個室 3名",
+    prices: [
+      ["平日", "¥18,000"],
+      ["休日前", "¥24,000"],
+      ["年末年始", "¥27,000"],
+    ],
+    desc: "ご夫婦やカップルでの利用にもおすすめの個室です。",
+    img: "/images/accommodation/typed.jpg",
+  },
+  {
+    name: "個室 4-5名",
     prices: [
       ["平日", "¥25,000"],
       ["休日前", "¥35,000"],
@@ -54,8 +80,7 @@ const privatePlans: Plan[] = [
     img: "/images/accommodation/typea.jpg",
   },
   {
-    name: "個室 TypeB",
-    sub: "6人部屋",
+    name: "個室 6名",
     prices: [
       ["平日", "¥30,000"],
       ["休日前", "¥42,000"],
@@ -63,17 +88,6 @@ const privatePlans: Plan[] = [
     ],
     desc: "少人数のグループ旅行にぴったりのコンパクトな個室です。",
     img: "/images/accommodation/typeb.jpg",
-  },
-  {
-    name: "個室 TypeD",
-    sub: "3人部屋",
-    prices: [
-      ["平日", "¥18,000"],
-      ["休日前", "¥24,000"],
-      ["年末年始", "¥27,000"],
-    ],
-    desc: "ご夫婦やカップルでの利用にもおすすめの個室です。",
-    img: "/images/accommodation/typed.jpg",
   },
 ];
 
@@ -87,7 +101,9 @@ function PlanCard({ plan }: { plan: Plan }) {
       </div>
       <div className="p-5 flex flex-col gap-3 flex-1">
         <h3 className="text-base font-bold text-[#333333]">{plan.name}</h3>
-        <p className="text-[11px] text-[#999999]">{plan.sub}</p>
+        {plan.sub && (
+          <p className="text-[11px] text-[#999999]">{plan.sub}</p>
+        )}
         <div className="flex flex-col">
           {plan.prices.map(([label, value]) => (
             <div
@@ -127,7 +143,27 @@ export default function Accommodation() {
       {/* ドミトリーセクション */}
       <section className="py-12 px-8 bg-white lg:py-20">
         <div className="flex flex-col items-center gap-6 sm:max-w-xl sm:mx-auto lg:max-w-4xl">
-          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">
+          <div className="grid grid-cols-1 gap-4 w-full sm:grid-cols-2 sm:max-w-lg">
+            <div className="flex flex-col items-center gap-2 border border-[#eeeeee] rounded-xl py-6 px-4">
+              <span className="text-[11px] tracking-[0.2em] text-[#999999]">
+                CHECK-IN
+              </span>
+              <span className="text-[11px] text-[#999999]">チェックイン</span>
+              <span className="text-xl font-bold tracking-wide text-[#333333]">
+                16:00〜22:00
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-2 border border-[#eeeeee] rounded-xl py-6 px-4">
+              <span className="text-[11px] tracking-[0.2em] text-[#999999]">
+                CHECK-OUT
+              </span>
+              <span className="text-[11px] text-[#999999]">チェックアウト</span>
+              <span className="text-xl font-bold tracking-wide text-[#333333]">
+                〜10:00
+              </span>
+            </div>
+          </div>
+          <h2 className="mt-[10px] text-2xl font-bold tracking-[0.2em] text-[#333333]">
             Dormitory
           </h2>
           <p className="text-[11px] text-[#999999]">ドミトリーのご案内</p>
@@ -176,6 +212,60 @@ export default function Accommodation() {
             {privatePlans.map((plan) => (
               <PlanCard key={plan.name} plan={plan} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <hr className="border-[#eeeeee]" />
+
+      {/* ご留意事項 */}
+      <section className="py-12 px-8 bg-white lg:py-20">
+        <div className="flex flex-col items-center gap-6 sm:max-w-xl sm:mx-auto lg:max-w-2xl">
+          <h2 className="text-2xl font-bold tracking-[0.2em] text-[#333333]">
+            Notes
+          </h2>
+          <p className="text-[11px] text-[#999999]">
+            宿泊に際してご留意いただきたい事項
+          </p>
+          <ul className="flex flex-col gap-4 w-full">
+            {stayNotes.map((note) => (
+              <li
+                key={note}
+                className="text-[13px] text-[#555555] leading-[1.8] pl-4 border-l border-[#eeeeee]"
+              >
+                {note}
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-col gap-3 w-full">
+            <h3 className="text-base font-bold text-[#333333]">入浴について</h3>
+            <p className="text-[13px] text-[#555555] leading-[1.8]">
+              NISHIBORAKANは共同のお風呂です。宿泊者が少ない場合、一つのお風呂を男女で時間を区切ってご利用いただきます。ご理解とご協力をお願いいたします。
+            </p>
+            <p className="text-[13px] text-[#555555] leading-[1.8]">
+              利用時間 16:00〜23:00（状況によって変動あり）
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3 w-full">
+            <h3 className="text-base font-bold text-[#333333]">
+              キャンセル料金について
+            </h3>
+            <p className="text-[13px] text-[#555555] leading-[1.8]">
+              ご宿泊をキャンセルされる場合は、下記のキャンセル料を申し受けます。お早めにご連絡ください。キャンセル料は、理由にかかわらず免除できません。当日のキャンセルに限り、ご予約の夕食費も申し受けます。
+            </p>
+            <div className="flex flex-col">
+              {cancelFees.map(([label, value]) => (
+                <div
+                  key={label}
+                  className="flex justify-between items-center py-3 border-b border-[#eeeeee]"
+                >
+                  <span className="text-[12px] text-[#999999]">{label}</span>
+                  <span className="text-sm font-bold text-[#333333]">{value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

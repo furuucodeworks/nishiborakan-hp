@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const infoRows = [
   ["OPENING SEASON", "12月〜3月"],
-  ["CHECK-IN", "16:00〜"],
+  ["CHECK-IN", "16:00〜22:00"],
   ["CHECK-OUT", "〜10:00"],
   ["DORMITORY", "¥3,000〜(平日)"],
   ["PRIVATE ROOM", "¥25,000〜(平日)"],

@@ -2,9 +2,9 @@ export const INQUIRY_TYPES = ["空室確認", "その他"] as const;
 export const ROOM_TYPES = [
   "MIXドミトリー 2段ベッド",
   "MIXドミトリー シングルベッド",
-  "個室 TypeA",
-  "個室 TypeB",
-  "個室 TypeD",
+  "個室 3名",
+  "個室 4-5名",
+  "個室 6名",
 ] as const;
 export const CHECK_IN_TIMES = [
   "16:00〜17:00",
